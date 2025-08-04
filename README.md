@@ -72,7 +72,7 @@
   │ ├── api/ 
   │ │ └── fetchApi.js 
   │ └── assets/ 
-  │ ├── LICENSE 
+  │ ├── LICENSE.txt
   ├── README.md 
   └── .gitignore 
 </pre>
