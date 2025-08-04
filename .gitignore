@@ -1,0 +1,18 @@
+# ===== Backend ignores =====
+backend/node_modules/
+backend/.env
+backend/dist/
+backend/*.log
+
+# ===== Frontend ignores =====
+frontend/node_modules/
+frontend/.env
+frontend/build/
+frontend/.next/
+
+# ===== Common ignores =====
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
