@@ -41,14 +41,14 @@ def generate_ai_summary(gh_data: dict, lc_data: dict):
     The candidate has provided their GitHub and LeetCode profiles for evaluation. Analyze both and generate a fair and constructive assessment.
 
     --------------------
-    🔹 GITHUB PROFILE:
+    GITHUB PROFILE:
     - Username: {gh_username}
     - Public repositories: {gh_repos}
     - Total stars: {gh_stars}
     - Total forks: {gh_forks}
     - Top languages (with repo count): {gh_languages}
 
-    🔹 LEETCODE PROFILE:
+    LEETCODE PROFILE:
     - Username: {lc_username}
     - Easy problems solved: {lc_solved_and_submissions[1]["count"]}
     - Medium problems solved : {lc_solved_and_submissions[2]["count"]}

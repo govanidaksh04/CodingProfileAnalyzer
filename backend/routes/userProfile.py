@@ -2,15 +2,20 @@ from fastapi import APIRouter, HTTPException
 from serviceLayer.github_fetcher import fetch_github_profile 
 from serviceLayer.ai_summary import generate_ai_summary  # adjust import
 from serviceLayer.leetcode_fetcher import fetch_leetcode_profile
+from pydantic import BaseModel
 
 router = APIRouter()
 
-@router.get("/analyze/{username}")
-def analyze_coding_profile(username_gh: str, username_lc: str):
+class UserProfile(BaseModel):
+    github: str
+    leetcode: str
+
+@router.post("/analyze")
+def analyze_coding_profile(profile: UserProfile):
     # 1. Fetch GitHub and LeetCode data
     try:
-        gh_data = fetch_github_profile(username_gh)
-        lc_data = fetch_leetcode_profile(username_lc)
+        gh_data = fetch_github_profile(profile.github)
+        lc_data = fetch_leetcode_profile(profile.leetcode)
     except HTTPException as e:
         return {
             "status_code" : 404,

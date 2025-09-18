@@ -92,8 +92,6 @@ def fetch_submission_calendar(username: str):
     
     active_days = {day for day in active_days if day.year == 2025}
 
-    print("Active days in ", datetime.now().year, " : ", len(active_days))
-
     active_days_list = list(active_days)
 
     active_days_list.sort()
@@ -106,8 +104,7 @@ def fetch_submission_calendar(username: str):
             max_streak = max(max_streak, current_streak)
             current_streak = 1
     max_streak = max(max_streak, current_streak)
-    print("\nMax Streak in ", datetime.now().year," : ", max_streak)
-
+    
     return {
         "activeDays" : len(active_days),
         "maxStreak" : max_streak

@@ -1,0 +1,83 @@
+/* Analysis.css - plain CSS so Tailwind is not required */
+.analysis-card {
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* header */
+.analysis-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #161719;
+  font-weight: 600;
+  font-size: 16px;
+}
+.analysis-header img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* main layout - stack on mobile, side-by-side on desktop */
+.analysis-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .analysis-main { flex-direction: row; align-items: flex-start; }
+}
+
+/* left: pie area */
+.pie-wrap {
+  flex: 0 0 260px; /* fixed chunk for the pie */
+  display: flex;
+  justify-content: center;
+}
+
+/* right: grid */
+.stats-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* stat card */
+.stat-card {
+  background: #f8fafc; /* subtle contrast */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow .18s ease;
+}
+.stat-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.07); }
+
+.stat-label { font-size: 12px; color: #6b7280; margin: 0 0 6px 0; }
+.stat-value { font-size: 20px; font-weight: 700; color: #111827; margin:0; }
+
+.stat-icon {
+  background: #fff;
+  padding: 8px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* make the layout responsive for narrow screens */
+@media (max-width: 420px) {
+  .pie-wrap { flex: 0 0 200px; }
+  .stat-value { font-size: 18px; }
+}
