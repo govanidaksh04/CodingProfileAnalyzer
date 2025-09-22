@@ -3,7 +3,7 @@ from routes.userProfile import router as userProfileRouter
 from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
-    "http://localhost:5173"
+    "https://coding-profile-analyzer.vercel.app"
 ]
 
 app = FastAPI(title="CodingProfileAnalyzer Insight Backend")
@@ -17,3 +17,7 @@ app.add_middleware(
 )
 
 app.include_router(userProfileRouter)
+
+@app.get("/health")
+def health():
+    return {"status":"ok"}
