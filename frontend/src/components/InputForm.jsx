@@ -6,6 +6,7 @@ const InputForm = ({setData}) => {
   const [github, setGithub] = useState("");
   const [leetcode, setLeetcode] = useState("");
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -16,7 +17,7 @@ const InputForm = ({setData}) => {
     let analyzeButton = document.getElementById("analyze");
     analyzeButton.textContent = "Analyzing...";
     analyzeButton.style.backgroundColor = "#2563eb";
-    const res = await fetch('http://localhost:8000/analyze', {
+    const res = await fetch(`${API_BASE_URL}/analyze`, {
       method: "POST",
       headers: {
         "Content-Type" : "application/json",
