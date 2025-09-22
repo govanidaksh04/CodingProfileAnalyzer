@@ -3,7 +3,7 @@
 **CodingProfileAnalyzer** is a full-stack developer profiling tool that fetches data from GitHub and LeetCode profiles and analyzes it using LLMs to generate an AI-based score, strengths, weaknesses, and personalized improvement suggestions. Ideal for developers, students, and recruiters.
 
 ## 🚀 Live Demo
-(https://coding-profile-analyzer.vercel.app/)
+https://coding-profile-analyzer.vercel.app/
 
 ## ✨ Features
 
