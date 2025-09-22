@@ -35,48 +35,10 @@
 
 | Layer       | Tech Used                         |
 |-------------|-----------------------------------|
-| Frontend    | React, Tailwind CSS, Chart.js     |
+| Frontend    | React, recharts                   |
 | Backend     | FastAPI                           |
 | AI Analysis | Gemini API (or OpenAI GPT-4)      |
 | Data APIs   | GitHub REST API, LeetCode GraphQL |
-
-## 📂 Folder Structure
-
-<pre> 
-  CodingProfileAnalyzer/ 
-  ├── backend/ 
-  │ ├── main.py 
-  │ ├── requirements.txt 
-  │ ├── .env 
-  │ ├── services/ 
-  │ │ ├── github_fetcher.py 
-  │ │ ├── leetcode_fetcher.py 
-  │ │ └── ai_summary.py 
-  │ ├── models/ 
-  │ │ └── profile_model.py 
-  │ └── utils/ 
-  │ └── helper_functions.py 
-  │ ├── frontend/ 
-  │ ├── package.json 
-  │ ├── vite.config.js 
-  │ ├── tailwind.config.js 
-  │ ├── public/ 
-  │ └── src/ 
-  │ ├── App.jsx 
-  │ ├── index.jsx 
-  │ ├── components/ 
-  │ │ ├── GitHubStats.jsx 
-  │ │ ├── LeetCodeStats.jsx 
-  │ │ ├── AiInsights.jsx 
-  │ │ └── Chart.jsx 
-  │ ├── api/ 
-  │ │ └── fetchApi.js 
-  │ └── assets/ 
-  │ ├── LICENSE.txt
-  ├── README.md 
-  └── .gitignore 
-</pre>
-
 
 ## 🔄 How It Works
 
@@ -106,7 +68,7 @@ GITHUB_API_BASE=https://api.github.com
 OPENAI_API_KEY=your_key_here  # or GEMINI_API_KEY
 ```
 
-### Frontend (React + Tailwind)
+### Frontend (React)
 ```bash
 cd frontend
 npm install
