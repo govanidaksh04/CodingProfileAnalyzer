@@ -106,7 +106,7 @@ GITHUB_API_BASE=https://api.github.com
 OPENAI_API_KEY=your_key_here  # or GEMINI_API_KEY
 ```
 
-### Frontend (React + Tailwind)
+### Frontend (React)
 ```bash
 cd frontend
 npm install
