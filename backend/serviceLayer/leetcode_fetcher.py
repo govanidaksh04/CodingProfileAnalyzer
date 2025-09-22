@@ -1,7 +1,7 @@
 import requests
 import json
 from datetime import datetime, timedelta
-# from collections import defaultdict
+from fastapi import HTTPException
 
 # ------------------------- Helper Functions -------------------------
 
@@ -37,7 +37,6 @@ def fetch_basic_profile(username: str):
     data = get_graphql_data(query, {"username": username})
     user = data.get("data", {}).get("matchedUser", None)
     if not user:
-        print("❌ User not found!")
         return None
     return user
 
@@ -87,7 +86,6 @@ def fetch_submission_calendar(username: str):
     calendar_info = data["data"]["matchedUser"]["userCalendar"]
     submission_calendar = json.loads(calendar_info["submissionCalendar"])
     
-    # Convert timestamps to date objects
     active_days = set(datetime.fromtimestamp(int(ts)).date() for ts in submission_calendar)
     
     active_days = {day for day in active_days if day.year == 2025}
@@ -129,7 +127,7 @@ def fetch_contest_data(username: str):
 
     user_data = data["data"]
     if not user_data:
-        return {"error": "User not found or contest data not available."}
+        return None
 
     ranking = user_data.get("userContestRanking", {})
     
@@ -145,7 +143,7 @@ def fetch_contest_data(username: str):
 def fetch_leetcode_profile(username : str):
     profile = fetch_basic_profile(username)
     if profile is None:
-        return {"error": "User not found or data unavailable."}
+        raise HTTPException(status_code = 404, detail = "Invalid LeetCode user id")
 
     topics = fetch_topic_tags(username) or {}
     activity = fetch_submission_calendar(username) or {}

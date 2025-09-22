@@ -7,8 +7,15 @@ const InputForm = ({setData}) => {
   const [leetcode, setLeetcode] = useState("");
   const navigate = useNavigate();
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let analyzeButton = document.getElementById("analyze");
+    analyzeButton.textContent = "Analyzing...";
+    analyzeButton.style.backgroundColor = "#2563eb";
     const res = await fetch('http://localhost:8000/analyze', {
       method: "POST",
       headers: {
@@ -17,9 +24,18 @@ const InputForm = ({setData}) => {
       body: JSON.stringify({github, leetcode}),
     });
     let analysisData = await res.json();
-    setData(analysisData.data);
-    console.log(analysisData.data);
-    navigate("/analysis");
+    console.log(analysisData);
+    if(analysisData.status_code == 200){
+      setData(analysisData.content.data);
+      analyzeButton.innerHTML = "&#10003 Analysed";
+      analyzeButton.style.backgroundColor = "#00e68a";
+      await sleep(2000);
+      navigate("/analysis");
+    }
+    else{
+      alert("Error : " + analysisData.content.error.message);
+      window.location.reload();
+    }
   };
 
   return (
@@ -135,6 +151,7 @@ const InputForm = ({setData}) => {
         {/* Submit Button */}
         <button
           type="submit"
+          id="analyze"
           style={{
             width: "90%",
             backgroundColor: "#3b82f6",

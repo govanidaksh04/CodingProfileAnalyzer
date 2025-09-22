@@ -1,0 +1,19 @@
+Frontend : 
+GitHub : 
+- Pie Chart of top languages
+- Cards : 
+	- Public Repos
+	- Stars
+	- Forks
+	- Followers
+
+LeetCode : 
+- Difficulty wise solved (tile card)
+- Topic wise solved (bar graph) for each advance, intermediate, beginner
+- Total active days this year and max streak card
+- Contest Rating and count (tile card)
+
+AI Insights Section : 
+- Score out of 100 (tile card)
+- Cards for strengths (1 card containing all strengths in points) and weaknesses (1 card containing all weaknesses in points)
+- Improvement Tips (Cards)

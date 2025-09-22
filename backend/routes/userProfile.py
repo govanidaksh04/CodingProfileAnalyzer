@@ -18,27 +18,41 @@ def analyze_coding_profile(profile: UserProfile):
         lc_data = fetch_leetcode_profile(profile.leetcode)
     except HTTPException as e:
         return {
-            "status_code" : 404,
+            "status_code" : e.status_code,
             "content" : {
                 "success": False,
                 "data": None,
                 "error": {
-                    "type": "User Not Found",
-                    "message": "Invalid Profile Id"
+                    "message": e.detail
                 }
             }
         }
 
     # 2. Generate AI summary
-    ai_data = generate_ai_summary(gh_data, lc_data)
+    try:
+        ai_data = generate_ai_summary(gh_data, lc_data)
+    except HTTPException as e:
+        return {
+            "status_code" : 500,
+            "content" : {
+                "success": False,
+                "data": None,
+                "error": {
+                    "message": "AI Server Down"
+                }
+            }
+        }
 
     return {
-        "success": True,
-        "data": {
-            "github_data": gh_data,
-            "leetcode_data": lc_data,
-            "ai_summary": ai_data
-        },
-        "error": None
+        "status_code" : 200,
+        "content" : {
+            "success": True,
+            "data": {
+                "github_data": gh_data,
+                "leetcode_data": lc_data,
+                "ai_summary": ai_data
+            },
+            "error": None
+        }
     }
 

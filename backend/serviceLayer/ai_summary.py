@@ -37,10 +37,7 @@ def generate_ai_summary(gh_data: dict, lc_data: dict):
 
     prompt = f"""
     You are an experienced software engineering recruiter and AI analyst evaluating the technical profile of a fresher aspiring for an SDE (Software Development Engineer) role.
-
     The candidate has provided their GitHub and LeetCode profiles for evaluation. Analyze both and generate a fair and constructive assessment.
-
-    --------------------
     GITHUB PROFILE:
     - Username: {gh_username}
     - Public repositories: {gh_repos}
@@ -57,11 +54,9 @@ def generate_ai_summary(gh_data: dict, lc_data: dict):
     - Max Streak : {lc_max_streak}
     - Contest rating: {lc_contest_rating}
     - Contests attended: {lc_contest_count}
-    --------------------
 
-    🎯 TASK:
+    TASK:
     Based on both profiles, evaluate the candidate's current standing as a fresher for an SDE role and respond ONLY with a well-structured JSON in the following format:
-
     {{
         "score": "Give a number out of 100 evaluating the overall SDE-readiness based on GitHub and LeetCode data.",
         "strengths": [
