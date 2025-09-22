@@ -1,7 +1,0 @@
-Progress : 
-- backend working successfully
-- post api implemented successfully
-
-To Do :
-- Display the data in frontend using charts and cards
-- Implement database and leaderboard
